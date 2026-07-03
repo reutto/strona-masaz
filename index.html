@@ -228,6 +228,9 @@ html{ scrollbar-width: thin; scrollbar-color: var(--teal) var(--cream-dark); }
 .mobile-menu a{ color: var(--cream); font-size:1.15rem; padding:12px 0; display:block; border-bottom:1px solid rgba(255,255,255,.08); transition: color .3s, padding-left .3s; }
 .mobile-menu a:hover{ color: var(--gold); padding-left:8px; }
 .mobile-menu__actions{ display:flex; flex-direction:column; gap:14px; }
+.mobile-menu__actions .btn{ justify-content:center; width:100%; }
+.mobile-menu__actions .btn--ghost{ color: var(--cream); border-color: rgba(247,243,236,.5); }
+.mobile-menu__actions .btn--ghost:hover{ background: var(--cream); color: var(--teal-dark); border-color: var(--cream); }
 .mobile-menu__overlay{
   position: fixed; inset:0; background: rgba(20,25,24,.55);
   z-index:1050; opacity:0; visibility:hidden; transition: all .4s var(--ease);
@@ -460,7 +463,7 @@ html{ scrollbar-width: thin; scrollbar-color: var(--teal) var(--cream-dark); }
   display:flex; align-items:center; justify-content:center;
   transition: all .3s var(--ease);
 }
-.footer__social a:hover{ background: var(--gold); color:#1a2624; border-color: var(--gold); transform: translateY(-4px); }
+.footer__social a:hover{ border-color: var(--gold); color: var(--gold); transform: translateY(-4px); }
 .footer__col h4{ color: var(--cream); font-family: var(--font-body); font-size:.95rem; letter-spacing:1px; text-transform:uppercase; margin-bottom:18px; }
 .footer__col ul{ display:flex; flex-direction:column; gap:10px; }
 .footer__col a{ font-size:.9rem; transition: color .3s, padding-left .3s; }
@@ -573,12 +576,12 @@ html{ scrollbar-width: thin; scrollbar-color: var(--teal) var(--cream-dark); }
 
     <nav class="nav" id="mainNav">
       <ul class="nav__list">
-        <li><a href="#hero" class="nav__link">Start</a></li>
-        <li><a href="#masaze" class="nav__link">Masaże</a></li>
-        <li><a href="#salony" class="nav__link">Salony</a></li>
-        <li><a href="#vouchery" class="nav__link">Kup prezent</a></li>
-        <li><a href="#oferty" class="nav__link">Oferty</a></li>
-        <li><a href="#kontakt" class="nav__link">Kontakt</a></li>
+        <li><a href="#hero" class="nav__link" data-i18n="nav.start">Start</a></li>
+        <li><a href="#masaze" class="nav__link" data-i18n="nav.masaze">Masaże</a></li>
+        <li><a href="#salony" class="nav__link" data-i18n="nav.salony">Salony</a></li>
+        <li><a href="#vouchery" class="nav__link" data-i18n="nav.voucher">Kup prezent</a></li>
+        <li><a href="#oferty" class="nav__link" data-i18n="nav.oferty">Oferty</a></li>
+        <li><a href="#kontakt" class="nav__link" data-i18n="nav.kontakt">Kontakt</a></li>
       </ul>
     </nav>
 
@@ -591,8 +594,8 @@ html{ scrollbar-width: thin; scrollbar-color: var(--teal) var(--cream-dark); }
           <li data-lang="UA">UA</li>
         </ul>
       </div>
-      <a href="#vouchery" class="btn btn--ghost">Zamów voucher</a>
-      <a href="#salony" class="btn btn--primary">Zarezerwuj termin</a>
+      <a href="#vouchery" class="btn btn--ghost" data-i18n="btn.zamowVoucher">Zamów voucher</a>
+      <a href="#salony" class="btn btn--primary" data-i18n="btn.zarezerwuj">Zarezerwuj termin</a>
       <button class="burger" id="burger" aria-label="Menu">
         <span></span><span></span><span></span>
       </button>
@@ -602,16 +605,16 @@ html{ scrollbar-width: thin; scrollbar-color: var(--teal) var(--cream-dark); }
 
 <div class="mobile-menu" id="mobileMenu">
   <ul>
-    <li><a href="#hero">Start</a></li>
-    <li><a href="#masaze">Masaże</a></li>
-    <li><a href="#salony">Salony</a></li>
-    <li><a href="#vouchery">Kup prezent</a></li>
-    <li><a href="#oferty">Oferty</a></li>
-    <li><a href="#kontakt">Kontakt</a></li>
+    <li><a href="#hero" data-i18n="nav.start">Start</a></li>
+    <li><a href="#masaze" data-i18n="nav.masaze">Masaże</a></li>
+    <li><a href="#salony" data-i18n="nav.salony">Salony</a></li>
+    <li><a href="#vouchery" data-i18n="nav.voucher">Kup prezent</a></li>
+    <li><a href="#oferty" data-i18n="nav.oferty">Oferty</a></li>
+    <li><a href="#kontakt" data-i18n="nav.kontakt">Kontakt</a></li>
   </ul>
   <div class="mobile-menu__actions">
-    <a href="#vouchery" class="btn btn--ghost">Zamów voucher</a>
-    <a href="#salony" class="btn btn--primary">Zarezerwuj termin</a>
+    <a href="#vouchery" class="btn btn--ghost" data-i18n="btn.zamowVoucher">Zamów voucher</a>
+    <a href="#salony" class="btn btn--primary" data-i18n="btn.zarezerwuj">Zarezerwuj termin</a>
   </div>
 </div>
 <div class="mobile-menu__overlay" id="mobileOverlay"></div>
@@ -623,17 +626,17 @@ html{ scrollbar-width: thin; scrollbar-color: var(--teal) var(--cream-dark); }
     <div class="hero__bg"></div>
     <div class="hero__texture"></div>
     <div class="container hero__content reveal" data-reveal>
-      <p class="hero__eyebrow">Tao Tao SPA &amp; Massage</p>
-      <h1 class="hero__title">Czekamy na Państwa<br> w kilkunastu miastach<br> w całej Polsce</h1>
-      <p class="hero__subtitle">Zapraszamy do rezerwacji terminów — profesjonalne masaże, rytuały i zabiegi kobido w komfortowej, kameralnej atmosferze.</p>
+      <p class="hero__eyebrow" data-i18n="hero.eyebrow">Tao Tao SPA &amp; Massage</p>
+      <h1 class="hero__title" data-i18n-html="hero.title">Czekamy na Państwa<br> w kilkunastu miastach<br> w całej Polsce</h1>
+      <p class="hero__subtitle" data-i18n="hero.subtitle">Zapraszamy do rezerwacji terminów — profesjonalne masaże, rytuały i zabiegi kobido w komfortowej, kameralnej atmosferze.</p>
       <div class="hero__cta">
-        <a href="#salony" class="btn btn--primary btn--lg">Znajdź salon <i><svg class="icon" viewBox="0 0 24 24"><use href="#icon-arrow-right"/></svg></i></a>
-        <a href="#vouchery" class="btn btn--outline btn--lg">Kup voucher</a>
+        <a href="#salony" class="btn btn--primary btn--lg"><span data-i18n="hero.cta1">Znajdź salon</span> <i><svg class="icon" viewBox="0 0 24 24"><use href="#icon-arrow-right"/></svg></i></a>
+        <a href="#vouchery" class="btn btn--outline btn--lg" data-i18n="hero.cta2">Kup voucher</a>
       </div>
       <div class="hero__stats">
-        <div class="hero__stat"><span class="hero__stat-num" data-count="19">0</span><span>salonów</span></div>
-        <div class="hero__stat"><span class="hero__stat-num" data-count="9">0</span><span>miast</span></div>
-        <div class="hero__stat"><span class="hero__stat-num" data-count="12">0</span><span>lat doświadczenia</span></div>
+        <div class="hero__stat"><span class="hero__stat-num" data-count="19">0</span><span data-i18n="hero.stat1">salonów</span></div>
+        <div class="hero__stat"><span class="hero__stat-num" data-count="9">0</span><span data-i18n="hero.stat2">miast</span></div>
+        <div class="hero__stat"><span class="hero__stat-num" data-count="12">0</span><span data-i18n="hero.stat3">lat doświadczenia</span></div>
       </div>
     </div>
     <a href="#salony" class="hero__scroll" aria-label="Przewiń w dół">
@@ -647,36 +650,36 @@ html{ scrollbar-width: thin; scrollbar-color: var(--teal) var(--cream-dark); }
     <div class="container">
       <div class="intro__grid">
         <div class="intro__text reveal" data-reveal>
-          <p class="section__eyebrow">Nasza filozofia</p>
-          <h2 class="section__title">Chwila spokoju<br>w rytmie Tao</h2>
-          <p>Łączymy tradycyjne techniki azjatyckiego masażu z nowoczesnym podejściem do relaksu i regeneracji. Każdy z naszych salonów to kameralna, spokojna przestrzeń stworzona z myślą o pełnym wyciszeniu.</p>
+          <p class="section__eyebrow" data-i18n="intro.eyebrow">Nasza filozofia</p>
+          <h2 class="section__title" data-i18n-html="intro.title">Chwila spokoju<br>w rytmie Tao</h2>
+          <p data-i18n="intro.desc">Łączymy tradycyjne techniki azjatyckiego masażu z nowoczesnym podejściem do relaksu i regeneracji. Każdy z naszych salonów to kameralna, spokojna przestrzeń stworzona z myślą o pełnym wyciszeniu.</p>
           <ul class="intro__list">
-            <li><i><svg class="icon" viewBox="0 0 24 24"><use href="#icon-leaf"/></svg></i> Masaże relaksacyjne i lecznicze</li>
-            <li><i><svg class="icon" viewBox="0 0 24 24"><use href="#icon-users"/></svg></i> Rytuały dla ciała i twarzy</li>
-            <li><i><svg class="icon" viewBox="0 0 24 24"><use href="#icon-users"/></svg></i> Rytuały dla dwojga</li>
-            <li><i><svg class="icon" viewBox="0 0 24 24"><use href="#icon-smile"/></svg></i> Kobido — masaż liftingujący twarzy</li>
+            <li><i><svg class="icon" viewBox="0 0 24 24"><use href="#icon-leaf"/></svg></i> <span data-i18n="intro.list1">Masaże relaksacyjne i lecznicze</span></li>
+            <li><i><svg class="icon" viewBox="0 0 24 24"><use href="#icon-users"/></svg></i> <span data-i18n="intro.list2">Rytuały dla ciała i twarzy</span></li>
+            <li><i><svg class="icon" viewBox="0 0 24 24"><use href="#icon-users"/></svg></i> <span data-i18n="intro.list3">Rytuały dla dwojga</span></li>
+            <li><i><svg class="icon" viewBox="0 0 24 24"><use href="#icon-smile"/></svg></i> <span data-i18n="intro.list4">Kobido — masaż liftingujący twarzy</span></li>
           </ul>
         </div>
         <div class="intro__cards">
           <div class="intro__card reveal" data-reveal data-reveal-delay="0">
             <i><svg class="icon" viewBox="0 0 24 24"><use href="#icon-sparkle"/></svg></i>
-            <h3>Masaże</h3>
-            <p>Klasyczne, relaksacyjne, sportowe i lecznicze — dopasowane do Twoich potrzeb.</p>
+            <h3 data-i18n="intro.card1Title">Masaże</h3>
+            <p data-i18n="intro.card1Desc">Klasyczne, relaksacyjne, sportowe i lecznicze — dopasowane do Twoich potrzeb.</p>
           </div>
           <div class="intro__card reveal" data-reveal data-reveal-delay="120">
             <i><svg class="icon" viewBox="0 0 24 24"><use href="#icon-leaf"/></svg></i>
-            <h3>Rytuały</h3>
-            <p>Wielozmysłowe ceremonie pielęgnacyjne łączące zapach, dotyk i ciepło.</p>
+            <h3 data-i18n="intro.card2Title">Rytuały</h3>
+            <p data-i18n="intro.card2Desc">Wielozmysłowe ceremonie pielęgnacyjne łączące zapach, dotyk i ciepło.</p>
           </div>
           <div class="intro__card reveal" data-reveal data-reveal-delay="240">
             <i><svg class="icon" viewBox="0 0 24 24"><use href="#icon-heart"/></svg></i>
-            <h3>Dla dwojga</h3>
-            <p>Wspólny relaks w dwuosobowym gabinecie — idealne na wyjątkowe okazje.</p>
+            <h3 data-i18n="intro.card3Title">Dla dwojga</h3>
+            <p data-i18n="intro.card3Desc">Wspólny relaks w dwuosobowym gabinecie — idealne na wyjątkowe okazje.</p>
           </div>
           <div class="intro__card reveal" data-reveal data-reveal-delay="360">
             <i><svg class="icon" viewBox="0 0 24 24"><use href="#icon-gem"/></svg></i>
-            <h3>Kobido</h3>
-            <p>Japoński masaż liftingujący twarz — naturalne odmłodzenie bez ingerencji.</p>
+            <h3 data-i18n="intro.card4Title">Kobido</h3>
+            <p data-i18n="intro.card4Desc">Japoński masaż liftingujący twarz — naturalne odmłodzenie bez ingerencji.</p>
           </div>
         </div>
       </div>
@@ -687,16 +690,16 @@ html{ scrollbar-width: thin; scrollbar-color: var(--teal) var(--cream-dark); }
   <section class="salons" id="salony">
     <div class="container">
       <div class="section__head reveal" data-reveal>
-        <p class="section__eyebrow">Nasze lokalizacje</p>
-        <h2 class="section__title">Salony Tao Tao SPA</h2>
-        <p class="section__desc">Wybierz miasto i zarezerwuj termin w salonie najbliżej Ciebie.</p>
+        <p class="section__eyebrow" data-i18n="salons.eyebrow">Nasze lokalizacje</p>
+        <h2 class="section__title" data-i18n="salons.title">Salony Tao Tao SPA</h2>
+        <p class="section__desc" data-i18n="salons.desc">Wybierz miasto i zarezerwuj termin w salonie najbliżej Ciebie.</p>
       </div>
 
       <div class="filters reveal" data-reveal>
-        <button class="filter active" data-filter="all">Wszystkie</button>
+        <button class="filter active" data-filter="all" data-i18n="filter.all">Wszystkie</button>
         <button class="filter" data-filter="Warszawa">Warszawa</button>
         <button class="filter" data-filter="Poznań">Poznań</button>
-        <button class="filter" data-filter="Inne">Inne miasta</button>
+        <button class="filter" data-filter="Inne" data-i18n="filter.inne">Inne miasta</button>
       </div>
 
       <div class="salon-grid" id="salonGrid"><!-- generated by JS --></div>
@@ -707,37 +710,37 @@ html{ scrollbar-width: thin; scrollbar-color: var(--teal) var(--cream-dark); }
   <section class="vouchers" id="vouchery">
     <div class="container">
       <div class="section__head reveal" data-reveal>
-        <p class="section__eyebrow">Prezent idealny</p>
-        <h2 class="section__title">Kup voucher podarunkowy</h2>
-        <p class="section__desc">Podaruj bliskiej osobie chwilę relaksu — voucher można wykorzystać w dowolnym salonie Tao Tao SPA.</p>
+        <p class="section__eyebrow" data-i18n="vouchers.eyebrow">Prezent idealny</p>
+        <h2 class="section__title" data-i18n="vouchers.title">Kup voucher podarunkowy</h2>
+        <p class="section__desc" data-i18n="vouchers.desc">Podaruj bliskiej osobie chwilę relaksu — voucher można wykorzystać w dowolnym salonie Tao Tao SPA.</p>
       </div>
 
       <div class="voucher-grid">
         <div class="voucher-card reveal" data-reveal>
-          <div class="voucher-card__badge">Popularne</div>
+          <div class="voucher-card__badge" data-i18n="voucher1.badge">Popularne</div>
           <i class="voucher-card__icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-money"/></svg></i>
-          <h3>Voucher kwotowy</h3>
-          <p>Wybierz dowolną kwotę — obdarowana osoba sama zdecyduje, na jaki zabieg ją przeznaczyć.</p>
+          <h3 data-i18n="voucher1.title">Voucher kwotowy</h3>
+          <p data-i18n="voucher1.desc">Wybierz dowolną kwotę — obdarowana osoba sama zdecyduje, na jaki zabieg ją przeznaczyć.</p>
           <div class="voucher-card__price">150 — 1 000 <span>PLN</span></div>
           <ul class="voucher-card__list">
-            <li><i><svg class="icon" viewBox="0 0 24 24"><use href="#icon-check"/></svg></i> Ważny w wybranym salonie</li>
-            <li><i><svg class="icon" viewBox="0 0 24 24"><use href="#icon-check"/></svg></i> Elegancki wydruk lub e-voucher</li>
-            <li><i><svg class="icon" viewBox="0 0 24 24"><use href="#icon-check"/></svg></i> Ważność 12 miesięcy</li>
+            <li><i><svg class="icon" viewBox="0 0 24 24"><use href="#icon-check"/></svg></i> <span data-i18n="voucher1.list1">Ważny w wybranym salonie</span></li>
+            <li><i><svg class="icon" viewBox="0 0 24 24"><use href="#icon-check"/></svg></i> <span data-i18n="voucher1.list2">Elegancki wydruk lub e-voucher</span></li>
+            <li><i><svg class="icon" viewBox="0 0 24 24"><use href="#icon-check"/></svg></i> <span data-i18n="voucherX.validity">Ważność 12 miesięcy</span></li>
           </ul>
-          <a href="#kontakt" class="btn btn--primary btn--block">Zamów teraz</a>
+          <a href="#kontakt" class="btn btn--primary btn--block" data-i18n="voucher.cta">Zamów teraz</a>
         </div>
 
         <div class="voucher-card voucher-card--alt reveal" data-reveal data-reveal-delay="150">
           <i class="voucher-card__icon"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-leaf"/></svg></i>
-          <h3>Voucher — dowolny masaż</h3>
-          <p>Konkretny zabieg w wybranym wariancie czasowym, dla jednej lub dwóch osób.</p>
+          <h3 data-i18n="voucher2.title">Voucher — dowolny masaż</h3>
+          <p data-i18n="voucher2.desc">Konkretny zabieg w wybranym wariancie czasowym, dla jednej lub dwóch osób.</p>
           <div class="voucher-card__price">340 — 880 <span>PLN</span></div>
           <ul class="voucher-card__list">
-            <li><i><svg class="icon" viewBox="0 0 24 24"><use href="#icon-check"/></svg></i> Warianty 60 / 90 minut</li>
-            <li><i><svg class="icon" viewBox="0 0 24 24"><use href="#icon-check"/></svg></i> Opcja dla 1 lub 2 osób</li>
-            <li><i><svg class="icon" viewBox="0 0 24 24"><use href="#icon-check"/></svg></i> Ważność 12 miesięcy</li>
+            <li><i><svg class="icon" viewBox="0 0 24 24"><use href="#icon-check"/></svg></i> <span data-i18n="voucher2.list1">Warianty 60 / 90 minut</span></li>
+            <li><i><svg class="icon" viewBox="0 0 24 24"><use href="#icon-check"/></svg></i> <span data-i18n="voucher2.list2">Opcja dla 1 lub 2 osób</span></li>
+            <li><i><svg class="icon" viewBox="0 0 24 24"><use href="#icon-check"/></svg></i> <span data-i18n="voucherX.validity">Ważność 12 miesięcy</span></li>
           </ul>
-          <a href="#kontakt" class="btn btn--outline btn--block">Zamów teraz</a>
+          <a href="#kontakt" class="btn btn--outline btn--block" data-i18n="voucher.cta">Zamów teraz</a>
         </div>
       </div>
     </div>
@@ -747,38 +750,38 @@ html{ scrollbar-width: thin; scrollbar-color: var(--teal) var(--cream-dark); }
   <section class="offers" id="oferty">
     <div class="container">
       <div class="section__head reveal" data-reveal>
-        <p class="section__eyebrow">Wybrane dla Ciebie</p>
-        <h2 class="section__title">Oferty specjalne</h2>
+        <p class="section__eyebrow" data-i18n="offers.eyebrow">Wybrane dla Ciebie</p>
+        <h2 class="section__title" data-i18n="offers.title">Oferty specjalne</h2>
       </div>
 
       <div class="offer-grid">
         <article class="offer-card reveal" data-reveal>
           <div class="offer-card__media offer-card__media--1"><i><svg class="icon" viewBox="0 0 24 24"><use href="#icon-glass"/></svg></i></div>
           <div class="offer-card__body">
-            <span class="offer-card__tag">Wydarzenie</span>
-            <h3>Bali Morning Club x Konstancin</h3>
-            <p>Butikowe poranki wellness — masaż, rytuał i chwila w gronie osób ceniących spokój.</p>
-            <a href="#kontakt" class="offer-card__link">Dowiedz się więcej <i><svg class="icon" viewBox="0 0 24 24"><use href="#icon-arrow-right"/></svg></i></a>
+            <span class="offer-card__tag" data-i18n="offer1.tag">Wydarzenie</span>
+            <h3 data-i18n="offer1.title">Bali Morning Club x Konstancin</h3>
+            <p data-i18n="offer1.desc">Butikowe poranki wellness — masaż, rytuał i chwila w gronie osób ceniących spokój.</p>
+            <a href="#kontakt" class="offer-card__link"><span data-i18n="offer.link">Dowiedz się więcej</span> <i><svg class="icon" viewBox="0 0 24 24"><use href="#icon-arrow-right"/></svg></i></a>
           </div>
         </article>
 
         <article class="offer-card reveal" data-reveal data-reveal-delay="150">
           <div class="offer-card__media offer-card__media--2"><i><svg class="icon" viewBox="0 0 24 24"><use href="#icon-box"/></svg></i></div>
           <div class="offer-card__body">
-            <span class="offer-card__tag">Pakiet</span>
-            <h3>Pakiety masażu 3x / 8x</h3>
-            <p>Regularna regeneracja w atrakcyjnej cenie — pakiety 60-minutowych masaży.</p>
-            <a href="#kontakt" class="offer-card__link">Dowiedz się więcej <i><svg class="icon" viewBox="0 0 24 24"><use href="#icon-arrow-right"/></svg></i></a>
+            <span class="offer-card__tag" data-i18n="offer2.tag">Pakiet</span>
+            <h3 data-i18n="offer2.title">Pakiety masażu 3x / 8x</h3>
+            <p data-i18n="offer2.desc">Regularna regeneracja w atrakcyjnej cenie — pakiety 60-minutowych masaży.</p>
+            <a href="#kontakt" class="offer-card__link"><span data-i18n="offer.link">Dowiedz się więcej</span> <i><svg class="icon" viewBox="0 0 24 24"><use href="#icon-arrow-right"/></svg></i></a>
           </div>
         </article>
 
         <article class="offer-card reveal" data-reveal data-reveal-delay="300">
           <div class="offer-card__media offer-card__media--3"><i><svg class="icon" viewBox="0 0 24 24"><use href="#icon-smile"/></svg></i></div>
           <div class="offer-card__body">
-            <span class="offer-card__tag">Kobido</span>
-            <h3>Pakiety liftingu twarzy</h3>
-            <p>Seria zabiegów Kobido — widoczna poprawa jędrności i owalu twarzy.</p>
-            <a href="#kontakt" class="offer-card__link">Dowiedz się więcej <i><svg class="icon" viewBox="0 0 24 24"><use href="#icon-arrow-right"/></svg></i></a>
+            <span class="offer-card__tag" data-i18n="offer3.tag">Kobido</span>
+            <h3 data-i18n="offer3.title">Pakiety liftingu twarzy</h3>
+            <p data-i18n="offer3.desc">Seria zabiegów Kobido — widoczna poprawa jędrności i owalu twarzy.</p>
+            <a href="#kontakt" class="offer-card__link"><span data-i18n="offer.link">Dowiedz się więcej</span> <i><svg class="icon" viewBox="0 0 24 24"><use href="#icon-arrow-right"/></svg></i></a>
           </div>
         </article>
       </div>
@@ -789,17 +792,17 @@ html{ scrollbar-width: thin; scrollbar-color: var(--teal) var(--cream-dark); }
   <section class="newsletter">
     <div class="container newsletter__inner reveal" data-reveal>
       <div class="newsletter__text">
-        <h2>Zyskaj <span>5% rabatu</span> na pierwszą wizytę</h2>
-        <p>Zapisz się do naszego newslettera i bądź na bieżąco z ofertami specjalnymi.</p>
+        <h2 data-i18n-html="newsletter.title">Zyskaj <span>5% rabatu</span> na pierwszą wizytę</h2>
+        <p data-i18n="newsletter.desc">Zapisz się do naszego newslettera i bądź na bieżąco z ofertami specjalnymi.</p>
       </div>
       <form class="newsletter__form" id="newsletterForm">
-        <input type="text" placeholder="Imię" required>
-        <input type="email" placeholder="Adres e-mail" required>
-        <input type="tel" placeholder="Numer telefonu">
-        <button type="submit" class="btn btn--primary">Zapisz się</button>
+        <input type="text" placeholder="Imię" data-i18n-placeholder="newsletter.placeholderName" required>
+        <input type="email" placeholder="Adres e-mail" data-i18n-placeholder="newsletter.placeholderEmail" required>
+        <input type="tel" placeholder="Numer telefonu" data-i18n-placeholder="newsletter.placeholderPhone">
+        <button type="submit" class="btn btn--primary" data-i18n="newsletter.submit">Zapisz się</button>
         <label class="newsletter__consent">
           <input type="checkbox" required>
-          Wyrażam zgodę na przetwarzanie danych osobowych w celach marketingowych.
+          <span data-i18n="newsletter.consent">Wyrażam zgodę na przetwarzanie danych osobowych w celach marketingowych.</span>
         </label>
       </form>
     </div>
@@ -808,9 +811,9 @@ html{ scrollbar-width: thin; scrollbar-color: var(--teal) var(--cream-dark); }
   <!-- ===== KONTAKT / CTA ===== -->
   <section class="cta-final" id="kontakt">
     <div class="container cta-final__inner reveal" data-reveal>
-      <h2>Zarezerwuj swoją chwilę spokoju</h2>
-      <p>Zadzwoń do wybranego salonu lub zarezerwuj termin online — odpowiemy najszybciej jak to możliwe.</p>
-      <a href="#salony" class="btn btn--primary btn--lg">Zobacz salony <i><svg class="icon" viewBox="0 0 24 24"><use href="#icon-arrow-right"/></svg></i></a>
+      <h2 data-i18n="cta.title">Zarezerwuj swoją chwilę spokoju</h2>
+      <p data-i18n="cta.desc">Zadzwoń do wybranego salonu lub zarezerwuj termin online — odpowiemy najszybciej jak to możliwe.</p>
+      <a href="#salony" class="btn btn--primary btn--lg"><span data-i18n="cta.button">Zobacz salony</span> <i><svg class="icon" viewBox="0 0 24 24"><use href="#icon-arrow-right"/></svg></i></a>
     </div>
   </section>
 
@@ -821,7 +824,7 @@ html{ scrollbar-width: thin; scrollbar-color: var(--teal) var(--cream-dark); }
   <div class="container footer__grid">
     <div class="footer__col footer__brand">
       <a href="#top" class="logo logo--footer">Tao<span>Tao</span><small>SPA</small></a>
-      <p>Salony masażu i rytuałów w kilkunastu miastach w Polsce.</p>
+      <p data-i18n="footer.tagline">Salony masażu i rytuałów w kilkunastu miastach w Polsce.</p>
       <div class="footer__social">
         <a href="#" aria-label="Facebook"><i><svg class="icon" viewBox="0 0 24 24"><use href="#icon-facebook"/></svg></i></a>
         <a href="#" aria-label="Instagram"><i><svg class="icon" viewBox="0 0 24 24"><use href="#icon-instagram"/></svg></i></a>
@@ -829,41 +832,41 @@ html{ scrollbar-width: thin; scrollbar-color: var(--teal) var(--cream-dark); }
     </div>
 
     <div class="footer__col">
-      <h4>Usługi</h4>
+      <h4 data-i18n="footer.colServices">Usługi</h4>
       <ul>
-        <li><a href="#masaze">Masaże</a></li>
-        <li><a href="#masaze">Rytuały</a></li>
-        <li><a href="#masaze">Dla dwojga</a></li>
-        <li><a href="#masaze">Kobido</a></li>
-        <li><a href="#vouchery">Cennik</a></li>
+        <li><a href="#masaze" data-i18n="intro.card1Title">Masaże</a></li>
+        <li><a href="#masaze" data-i18n="intro.card2Title">Rytuały</a></li>
+        <li><a href="#masaze" data-i18n="intro.card3Title">Dla dwojga</a></li>
+        <li><a href="#masaze" data-i18n="intro.card4Title">Kobido</a></li>
+        <li><a href="#vouchery" data-i18n="footer.cennik">Cennik</a></li>
       </ul>
     </div>
 
     <div class="footer__col">
-      <h4>Salony</h4>
+      <h4 data-i18n="footer.colSalons">Salony</h4>
       <ul>
         <li><a href="#salony">Warszawa</a></li>
         <li><a href="#salony">Poznań</a></li>
         <li><a href="#salony">Kraków</a></li>
         <li><a href="#salony">Łódź</a></li>
-        <li><a href="#salony">Wszystkie miasta</a></li>
+        <li><a href="#salony" data-i18n="footer.allCities">Wszystkie miasta</a></li>
       </ul>
     </div>
 
     <div class="footer__col">
-      <h4>Informacje</h4>
+      <h4 data-i18n="footer.colInfo">Informacje</h4>
       <ul>
-        <li><a href="#">Polityka prywatności</a></li>
-        <li><a href="#">Regulamin</a></li>
-        <li><a href="#kontakt">Kontakt</a></li>
+        <li><a href="#" data-i18n="footer.privacy">Polityka prywatności</a></li>
+        <li><a href="#" data-i18n="footer.terms">Regulamin</a></li>
+        <li><a href="#kontakt" data-i18n="nav.kontakt">Kontakt</a></li>
       </ul>
-      <div class="footer__payment"><span class="visa-badge">VISA</span> Bezpieczne płatności</div>
+      <div class="footer__payment"><span class="visa-badge">VISA</span> <span data-i18n="footer.payment">Bezpieczne płatności</span></div>
     </div>
   </div>
   <div class="footer__bottom">
     <div class="container footer__bottom-inner">
-      <p>&copy; <span id="year"></span> Tao Tao SPA. Wszelkie prawa zastrzeżone.</p>
-      <p>Projekt strony inspirowany przez Studio Brothers</p>
+      <p>&copy; <span id="year"></span> Tao Tao SPA. <span data-i18n="footer.copyright2">Wszelkie prawa zastrzeżone.</span></p>
+      <p data-i18n="footer.credit">Projekt strony inspirowany przez Studio Brothers</p>
     </div>
   </div>
 </footer>
@@ -928,11 +931,144 @@ document.addEventListener('DOMContentLoaded', () => {
   mobileOverlay.addEventListener('click', closeMenu);
   mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
 
-  /* ============ LANGUAGE SWITCH (visual) ============ */
+  /* ============ LANGUAGE SWITCH (PL/EN/UA translations) ============ */
+  const translations = {
+    pl: {
+      'nav.start':'Start','nav.masaze':'Masaże','nav.salony':'Salony','nav.voucher':'Kup prezent','nav.oferty':'Oferty','nav.kontakt':'Kontakt',
+      'btn.zamowVoucher':'Zamów voucher','btn.zarezerwuj':'Zarezerwuj termin',
+      'hero.eyebrow':'Tao Tao SPA &amp; Massage',
+      'hero.title':'Czekamy na Państwa<br> w kilkunastu miastach<br> w całej Polsce',
+      'hero.subtitle':'Zapraszamy do rezerwacji terminów — profesjonalne masaże, rytuały i zabiegi kobido w komfortowej, kameralnej atmosferze.',
+      'hero.cta1':'Znajdź salon','hero.cta2':'Kup voucher',
+      'hero.stat1':'salonów','hero.stat2':'miast','hero.stat3':'lat doświadczenia',
+      'intro.eyebrow':'Nasza filozofia','intro.title':'Chwila spokoju<br>w rytmie Tao',
+      'intro.desc':'Łączymy tradycyjne techniki azjatyckiego masażu z nowoczesnym podejściem do relaksu i regeneracji. Każdy z naszych salonów to kameralna, spokojna przestrzeń stworzona z myślą o pełnym wyciszeniu.',
+      'intro.list1':'Masaże relaksacyjne i lecznicze','intro.list2':'Rytuały dla ciała i twarzy','intro.list3':'Rytuały dla dwojga','intro.list4':'Kobido — masaż liftingujący twarzy',
+      'intro.card1Title':'Masaże','intro.card1Desc':'Klasyczne, relaksacyjne, sportowe i lecznicze — dopasowane do Twoich potrzeb.',
+      'intro.card2Title':'Rytuały','intro.card2Desc':'Wielozmysłowe ceremonie pielęgnacyjne łączące zapach, dotyk i ciepło.',
+      'intro.card3Title':'Dla dwojga','intro.card3Desc':'Wspólny relaks w dwuosobowym gabinecie — idealne na wyjątkowe okazje.',
+      'intro.card4Title':'Kobido','intro.card4Desc':'Japoński masaż liftingujący twarz — naturalne odmłodzenie bez ingerencji.',
+      'salons.eyebrow':'Nasze lokalizacje','salons.title':'Salony Tao Tao SPA','salons.desc':'Wybierz miasto i zarezerwuj termin w salonie najbliżej Ciebie.',
+      'filter.all':'Wszystkie','filter.inne':'Inne miasta','salon.call':'Zadzwoń','salon.map':'Mapa','salon.otherCityBadge':'Polska',
+      'vouchers.eyebrow':'Prezent idealny','vouchers.title':'Kup voucher podarunkowy','vouchers.desc':'Podaruj bliskiej osobie chwilę relaksu — voucher można wykorzystać w dowolnym salonie Tao Tao SPA.',
+      'voucher1.badge':'Popularne','voucher1.title':'Voucher kwotowy','voucher1.desc':'Wybierz dowolną kwotę — obdarowana osoba sama zdecyduje, na jaki zabieg ją przeznaczyć.',
+      'voucher1.list1':'Ważny w wybranym salonie','voucher1.list2':'Elegancki wydruk lub e-voucher','voucherX.validity':'Ważność 12 miesięcy',
+      'voucher2.title':'Voucher — dowolny masaż','voucher2.desc':'Konkretny zabieg w wybranym wariancie czasowym, dla jednej lub dwóch osób.',
+      'voucher2.list1':'Warianty 60 / 90 minut','voucher2.list2':'Opcja dla 1 lub 2 osób','voucher.cta':'Zamów teraz',
+      'offers.eyebrow':'Wybrane dla Ciebie','offers.title':'Oferty specjalne',
+      'offer1.tag':'Wydarzenie','offer1.title':'Bali Morning Club x Konstancin','offer1.desc':'Butikowe poranki wellness — masaż, rytuał i chwila w gronie osób ceniących spokój.',
+      'offer2.tag':'Pakiet','offer2.title':'Pakiety masażu 3x / 8x','offer2.desc':'Regularna regeneracja w atrakcyjnej cenie — pakiety 60-minutowych masaży.',
+      'offer3.tag':'Kobido','offer3.title':'Pakiety liftingu twarzy','offer3.desc':'Seria zabiegów Kobido — widoczna poprawa jędrności i owalu twarzy.',
+      'offer.link':'Dowiedz się więcej',
+      'newsletter.title':'Zyskaj <span>5% rabatu</span> na pierwszą wizytę','newsletter.desc':'Zapisz się do naszego newslettera i bądź na bieżąco z ofertami specjalnymi.',
+      'newsletter.placeholderName':'Imię','newsletter.placeholderEmail':'Adres e-mail','newsletter.placeholderPhone':'Numer telefonu',
+      'newsletter.submit':'Zapisz się','newsletter.consent':'Wyrażam zgodę na przetwarzanie danych osobowych w celach marketingowych.','newsletter.thanks':'Dziękujemy!',
+      'cta.title':'Zarezerwuj swoją chwilę spokoju','cta.desc':'Zadzwoń do wybranego salonu lub zarezerwuj termin online — odpowiemy najszybciej jak to możliwe.','cta.button':'Zobacz salony',
+      'footer.tagline':'Salony masażu i rytuałów w kilkunastu miastach w Polsce.',
+      'footer.colServices':'Usługi','footer.colSalons':'Salony','footer.colInfo':'Informacje','footer.cennik':'Cennik','footer.allCities':'Wszystkie miasta',
+      'footer.privacy':'Polityka prywatności','footer.terms':'Regulamin','footer.payment':'Bezpieczne płatności',
+      'footer.copyright2':'Wszelkie prawa zastrzeżone.','footer.credit':'Projekt strony inspirowany przez Studio Brothers'
+    },
+    en: {
+      'nav.start':'Home','nav.masaze':'Massages','nav.salony':'Locations','nav.voucher':'Gift Voucher','nav.oferty':'Offers','nav.kontakt':'Contact',
+      'btn.zamowVoucher':'Buy Voucher','btn.zarezerwuj':'Book Appointment',
+      'hero.eyebrow':'Tao Tao SPA &amp; Massage',
+      'hero.title':"We're waiting for you<br> in over a dozen cities<br> across Poland",
+      'hero.subtitle':"Book your appointment today — professional massages, rituals and Kobido treatments in a comfortable, intimate atmosphere.",
+      'hero.cta1':'Find a location','hero.cta2':'Buy a voucher',
+      'hero.stat1':'locations','hero.stat2':'cities','hero.stat3':'years of experience',
+      'intro.eyebrow':'Our philosophy','intro.title':'A moment of calm<br>in the rhythm of Tao',
+      'intro.desc':'We combine traditional Asian massage techniques with a modern approach to relaxation and recovery. Every one of our locations is an intimate, calm space designed for complete relaxation.',
+      'intro.list1':'Relaxing and therapeutic massages','intro.list2':'Body and face rituals','intro.list3':'Rituals for two','intro.list4':'Kobido — face-lifting massage',
+      'intro.card1Title':'Massages','intro.card1Desc':'Classic, relaxing, sports and therapeutic — tailored to your needs.',
+      'intro.card2Title':'Rituals','intro.card2Desc':'Multi-sensory care ceremonies combining scent, touch and warmth.',
+      'intro.card3Title':'For two','intro.card3Desc':'Shared relaxation in a two-person treatment room — perfect for special occasions.',
+      'intro.card4Title':'Kobido','intro.card4Desc':'Japanese face-lifting massage — natural rejuvenation without intervention.',
+      'salons.eyebrow':'Our locations','salons.title':'Tao Tao SPA locations','salons.desc':'Choose a city and book an appointment at the location closest to you.',
+      'filter.all':'All','filter.inne':'Other cities','salon.call':'Call','salon.map':'Map','salon.otherCityBadge':'Poland',
+      'vouchers.eyebrow':'The perfect gift','vouchers.title':'Buy a gift voucher','vouchers.desc':'Give someone a moment of relaxation — the voucher can be used at any Tao Tao SPA location.',
+      'voucher1.badge':'Popular','voucher1.title':'Amount voucher','voucher1.desc':'Choose any amount — the recipient decides which treatment to spend it on.',
+      'voucher1.list1':'Valid at the chosen location','voucher1.list2':'Elegant printout or e-voucher','voucherX.validity':'Valid for 12 months',
+      'voucher2.title':'Voucher — any massage','voucher2.desc':'A specific treatment in your chosen duration, for one or two people.',
+      'voucher2.list1':'60 / 90 minute options','voucher2.list2':'Option for 1 or 2 people','voucher.cta':'Order now',
+      'offers.eyebrow':'Selected for you','offers.title':'Special offers',
+      'offer1.tag':'Event','offer1.title':'Bali Morning Club x Konstancin','offer1.desc':'Boutique wellness mornings — massage, ritual and time among people who value calm.',
+      'offer2.tag':'Package','offer2.title':'3x / 8x massage packages','offer2.desc':'Regular recovery at an attractive price — packages of 60-minute massages.',
+      'offer3.tag':'Kobido','offer3.title':'Face-lifting packages','offer3.desc':'A series of Kobido treatments — visible improvement in facial firmness and contour.',
+      'offer.link':'Learn more',
+      'newsletter.title':'Get <span>5% off</span> your first visit','newsletter.desc':'Sign up for our newsletter and stay up to date with special offers.',
+      'newsletter.placeholderName':'First name','newsletter.placeholderEmail':'Email address','newsletter.placeholderPhone':'Phone number',
+      'newsletter.submit':'Sign up','newsletter.consent':'I agree to the processing of my personal data for marketing purposes.','newsletter.thanks':'Thank you!',
+      'cta.title':'Book your moment of calm','cta.desc':"Call your chosen location or book online — we'll get back to you as soon as possible.",'cta.button':'View locations',
+      'footer.tagline':'Massage and ritual studios in over a dozen cities across Poland.',
+      'footer.colServices':'Services','footer.colSalons':'Locations','footer.colInfo':'Information','footer.cennik':'Pricing','footer.allCities':'All cities',
+      'footer.privacy':'Privacy Policy','footer.terms':'Terms of Service','footer.payment':'Secure payments',
+      'footer.copyright2':'All rights reserved.','footer.credit':'Website design inspired by Studio Brothers'
+    },
+    uk: {
+      'nav.start':'Головна','nav.masaze':'Масажі','nav.salony':'Салони','nav.voucher':'Сертифікат','nav.oferty':'Пропозиції','nav.kontakt':'Контакт',
+      'btn.zamowVoucher':'Купити сертифікат','btn.zarezerwuj':'Забронювати візит',
+      'hero.eyebrow':'Tao Tao SPA &amp; Massage',
+      'hero.title':'Чекаємо на вас<br> у кількох десятках міст<br> по всій Польщі',
+      'hero.subtitle':'Запрошуємо на бронювання — професійні масажі, ритуали та кобідо в комфортній, затишній атмосфері.',
+      'hero.cta1':'Знайти салон','hero.cta2':'Купити сертифікат',
+      'hero.stat1':'салонів','hero.stat2':'міст','hero.stat3':'років досвіду',
+      'intro.eyebrow':'Наша філософія','intro.title':'Мить спокою<br>у ритмі Тао',
+      'intro.desc':'Ми поєднуємо традиційні техніки азійського масажу з сучасним підходом до релаксації та відновлення. Кожен наш салон — це затишний, спокійний простір, створений для повного розслаблення.',
+      'intro.list1':'Релаксаційні та лікувальні масажі','intro.list2':'Ритуали для тіла та обличчя','intro.list3':'Ритуали для двох','intro.list4':'Кобідо — ліфтинг-масаж обличчя',
+      'intro.card1Title':'Масажі','intro.card1Desc':'Класичні, релаксаційні, спортивні та лікувальні — підібрані під ваші потреби.',
+      'intro.card2Title':'Ритуали','intro.card2Desc':'Багаточуттєві доглядові церемонії, що поєднують аромат, дотик і тепло.',
+      'intro.card3Title':'Для двох','intro.card3Desc':'Спільна релаксація у кабінеті для двох — ідеально для особливих нагод.',
+      'intro.card4Title':'Кобідо','intro.card4Desc':'Японський ліфтинг-масаж обличчя — природне омолодження без втручання.',
+      'salons.eyebrow':'Наші локації','salons.title':'Салони Tao Tao SPA','salons.desc':'Оберіть місто та забронюйте візит у найближчому салоні.',
+      'filter.all':'Усі','filter.inne':'Інші міста','salon.call':'Подзвонити','salon.map':'Карта','salon.otherCityBadge':'Польща',
+      'vouchers.eyebrow':'Ідеальний подарунок','vouchers.title':'Купити подарунковий сертифікат','vouchers.desc':'Подаруйте близькій людині мить релаксу — сертифікат можна використати у будь-якому салоні Tao Tao SPA.',
+      'voucher1.badge':'Популярне','voucher1.title':'Сертифікат на суму','voucher1.desc':'Оберіть будь-яку суму — отримувач сам вирішить, на яку процедуру її витратити.',
+      'voucher1.list1':'Дійсний в обраному салоні','voucher1.list2':'Елегантний друк або е-сертифікат','voucherX.validity':'Термін дії 12 місяців',
+      'voucher2.title':'Сертифікат — будь-який масаж','voucher2.desc':'Конкретна процедура в обраному варіанті тривалості, для однієї або двох осіб.',
+      'voucher2.list1':'Варіанти 60 / 90 хвилин','voucher2.list2':'Опція для 1 або 2 осіб','voucher.cta':'Замовити зараз',
+      'offers.eyebrow':'Обрано для вас','offers.title':'Спеціальні пропозиції',
+      'offer1.tag':'Подія','offer1.title':'Bali Morning Club x Konstancin','offer1.desc':'Бутикові wellness-ранки — масаж, ритуал і час серед людей, які цінують спокій.',
+      'offer2.tag':'Пакет','offer2.title':'Пакети масажу 3x / 8x','offer2.desc':'Регулярне відновлення за привабливою ціною — пакети 60-хвилинних масажів.',
+      'offer3.tag':'Кобідо','offer3.title':'Пакети ліфтингу обличчя','offer3.desc':'Серія процедур Кобідо — помітне покращення пружності та овалу обличчя.',
+      'offer.link':'Дізнатися більше',
+      'newsletter.title':'Отримайте <span>знижку 5%</span> на перший візит','newsletter.desc':'Підпишіться на нашу розсилку та будьте в курсі спеціальних пропозицій.',
+      'newsletter.placeholderName':"Ім'я",'newsletter.placeholderEmail':'Електронна адреса','newsletter.placeholderPhone':'Номер телефону',
+      'newsletter.submit':'Підписатися','newsletter.consent':'Я погоджуюсь на обробку персональних даних у маркетингових цілях.','newsletter.thanks':'Дякуємо!',
+      'cta.title':'Забронюйте свою мить спокою','cta.desc':'Зателефонуйте до обраного салону або забронюйте візит онлайн — ми відповімо якнайшвидше.','cta.button':'Переглянути салони',
+      'footer.tagline':'Салони масажу та ритуалів у кількох десятках міст Польщі.',
+      'footer.colServices':'Послуги','footer.colSalons':'Салони','footer.colInfo':'Інформація','footer.cennik':'Ціни','footer.allCities':'Усі міста',
+      'footer.privacy':'Політика конфіденційності','footer.terms':'Умови користування','footer.payment':'Безпечні платежі',
+      'footer.copyright2':'Усі права захищені.','footer.credit':'Дизайн сайту натхненний Studio Brothers'
+    }
+  };
+  const langCodeMap = { PL:'pl', EN:'en', UA:'uk' };
+  let currentLang = 'pl';
+
   const langCurrent = document.getElementById('langCurrent');
+  function applyLanguage(lang){
+    currentLang = lang;
+    const dict = translations[lang];
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (dict[key] !== undefined) el.textContent = dict[key];
+    });
+    document.querySelectorAll('[data-i18n-html]').forEach(el => {
+      const key = el.getAttribute('data-i18n-html');
+      if (dict[key] !== undefined) el.innerHTML = dict[key];
+    });
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+      const key = el.getAttribute('data-i18n-placeholder');
+      if (dict[key] !== undefined) el.placeholder = dict[key];
+    });
+    renderSalons(document.querySelector('.filter.active')?.dataset.filter || 'all');
+  }
+
   document.querySelectorAll('.lang-switch__menu li').forEach(item => {
     item.addEventListener('click', () => {
       langCurrent.childNodes[0].nodeValue = item.dataset.lang + ' ';
+      applyLanguage(langCodeMap[item.dataset.lang]);
     });
   });
 
@@ -968,9 +1104,10 @@ document.addEventListener('DOMContentLoaded', () => {
       const card = document.createElement('div');
       card.className = 'salon-card';
       card.style.transitionDelay = (i % 6) * 70 + 'ms';
+      const t = translations[currentLang];
       card.innerHTML = `
         <div class="salon-card__media">
-          <span class="salon-card__city">${s.city === 'Inne' ? 'Polska' : s.city}</span>
+          <span class="salon-card__city">${s.city === 'Inne' ? t['salon.otherCityBadge'] : s.city}</span>
           <i><svg class="icon" viewBox="0 0 24 24"><use href="#icon-leaf"/></svg></i>
         </div>
         <div class="salon-card__body">
@@ -978,8 +1115,8 @@ document.addEventListener('DOMContentLoaded', () => {
           <div class="salon-card__row"><i><svg class="icon" viewBox="0 0 24 24"><use href="#icon-pin"/></svg></i><span>${s.addr}</span></div>
           <div class="salon-card__row"><i><svg class="icon" viewBox="0 0 24 24"><use href="#icon-phone"/></svg></i><span>${s.phone}</span></div>
           <div class="salon-card__actions">
-            <a href="tel:${s.phone.replace(/\s/g,'')}" class="btn btn--primary">Zadzwoń</a>
-            <a href="https://www.google.com/maps/search/${encodeURIComponent(s.name + ' ' + s.addr)}" target="_blank" rel="noopener" class="btn btn--ghost">Mapa</a>
+            <a href="tel:${s.phone.replace(/\s/g,'')}" class="btn btn--primary">${t['salon.call']}</a>
+            <a href="https://www.google.com/maps/search/${encodeURIComponent(s.name + ' ' + s.addr)}" target="_blank" rel="noopener" class="btn btn--ghost">${t['salon.map']}</a>
           </div>
         </div>`;
       salonGrid.appendChild(card);
@@ -1057,7 +1194,7 @@ document.addEventListener('DOMContentLoaded', () => {
     e.preventDefault();
     const btn = newsletterForm.querySelector('button');
     const original = btn.textContent;
-    btn.textContent = 'Dziękujemy!';
+    btn.textContent = translations[currentLang]['newsletter.thanks'];
     btn.disabled = true;
     setTimeout(() => {
       btn.textContent = original;
