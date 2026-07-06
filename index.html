@@ -59,12 +59,6 @@ button{ font-family:inherit; cursor:pointer; }
   vertical-align:-0.15em;
   display:inline-block;
 }
-.visa-badge{
-  display:inline-block; font-family: Georgia, serif; font-style:italic; font-weight:700;
-  letter-spacing:1px; color: var(--cream); border:1px solid rgba(247,243,236,.4);
-  border-radius:4px; padding:2px 8px; font-size:.8rem; margin-right:4px;
-}
-
 /* ---------- custom scrollbar ---------- */
 ::-webkit-scrollbar{ width:12px; height:12px; }
 ::-webkit-scrollbar-track{ background: var(--cream-dark); }
@@ -224,7 +218,7 @@ html{ scrollbar-width: thin; scrollbar-color: var(--teal) var(--cream-dark); }
   display:flex; flex-direction:column; justify-content:space-between;
 }
 .mobile-menu.is-open{ transform: translateX(0); }
-.mobile-menu ul{ display:flex; flex-direction:column; gap:6px; }
+.mobile-menu ul{ display:flex; flex-direction:column; gap:6px; text-align:center; }
 .mobile-menu a{ color: var(--cream); font-size:1.15rem; padding:12px 0; display:block; border-bottom:1px solid rgba(255,255,255,.08); transition: color .3s, padding-left .3s; }
 .mobile-menu a:hover{ color: var(--gold); padding-left:8px; }
 .mobile-menu__actions{ display:flex; flex-direction:column; gap:14px; }
@@ -328,7 +322,9 @@ html{ scrollbar-width: thin; scrollbar-color: var(--teal) var(--cream-dark); }
 
 /* ---------- salons ---------- */
 .salons{ padding: 110px 0; background: var(--cream-dark); }
-.filters{ display:flex; gap:12px; flex-wrap:wrap; margin-bottom:40px; }
+.salons .section__head{ text-align:center; margin-left:auto; margin-right:auto; }
+.salons .section__desc{ margin-left:auto; margin-right:auto; }
+.filters{ display:flex; gap:12px; flex-wrap:wrap; margin-bottom:40px; justify-content:center; }
 .filter{
   background: var(--white); border:2px solid transparent; color: var(--ink-soft);
   padding:10px 22px; border-radius:50px; font-size:.9rem; font-weight:500;
@@ -438,8 +434,6 @@ html{ scrollbar-width: thin; scrollbar-color: var(--teal) var(--cream-dark); }
 .footer__col ul{ display:flex; flex-direction:column; gap:10px; }
 .footer__col a{ font-size:.9rem; transition: color .3s, padding-left .3s; }
 .footer__col a:hover{ color: var(--gold); padding-left:4px; }
-.footer__payment{ margin-top:18px; font-size:.85rem; display:flex; align-items:center; gap:8px; }
-.footer__payment i{ font-size:1.4rem; color: var(--cream); }
 .footer__bottom{ border-top:1px solid rgba(247,243,236,.1); padding:22px 0; }
 .footer__bottom-inner{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; font-size:.8rem; }
 
@@ -787,7 +781,6 @@ html{ scrollbar-width: thin; scrollbar-color: var(--teal) var(--cream-dark); }
         <li><a href="#" data-i18n="footer.terms">Regulamin</a></li>
         <li><a href="#kontakt" data-i18n="nav.kontakt">Kontakt</a></li>
       </ul>
-      <div class="footer__payment"><span class="visa-badge">VISA</span> <span data-i18n="footer.payment">Bezpieczne płatności</span></div>
     </div>
   </div>
   <div class="footer__bottom">
@@ -888,7 +881,7 @@ document.addEventListener('DOMContentLoaded', () => {
       'cta.title':'Zarezerwuj swoją chwilę spokoju','cta.desc':'Zadzwoń do wybranego salonu lub zarezerwuj termin online — odpowiemy najszybciej jak to możliwe.','cta.button':'Zobacz salony',
       'footer.tagline':'Salony masażu i rytuałów w kilkunastu miastach w Polsce.',
       'footer.colServices':'Usługi','footer.colSalons':'Salony','footer.colInfo':'Informacje','footer.allCities':'Wszystkie miasta',
-      'footer.privacy':'Polityka prywatności','footer.terms':'Regulamin','footer.payment':'Bezpieczne płatności',
+      'footer.privacy':'Polityka prywatności','footer.terms':'Regulamin',
       'footer.copyright2':'Wszelkie prawa zastrzeżone.','footer.credit':'Projekt strony inspirowany przez Studio Brothers'
     },
     en: {
@@ -919,7 +912,7 @@ document.addEventListener('DOMContentLoaded', () => {
       'cta.title':'Book your moment of calm','cta.desc':"Call your chosen location or book online — we'll get back to you as soon as possible.",'cta.button':'View locations',
       'footer.tagline':'Massage and ritual studios in over a dozen cities across Poland.',
       'footer.colServices':'Services','footer.colSalons':'Locations','footer.colInfo':'Information','footer.allCities':'All cities',
-      'footer.privacy':'Privacy Policy','footer.terms':'Terms of Service','footer.payment':'Secure payments',
+      'footer.privacy':'Privacy Policy','footer.terms':'Terms of Service',
       'footer.copyright2':'All rights reserved.','footer.credit':'Website design inspired by Studio Brothers'
     },
     uk: {
@@ -950,7 +943,7 @@ document.addEventListener('DOMContentLoaded', () => {
       'cta.title':'Забронюйте свою мить спокою','cta.desc':'Зателефонуйте до обраного салону або забронюйте візит онлайн — ми відповімо якнайшвидше.','cta.button':'Переглянути салони',
       'footer.tagline':'Салони масажу та ритуалів у кількох десятках міст Польщі.',
       'footer.colServices':'Послуги','footer.colSalons':'Салони','footer.colInfo':'Інформація','footer.allCities':'Усі міста',
-      'footer.privacy':'Політика конфіденційності','footer.terms':'Умови користування','footer.payment':'Безпечні платежі',
+      'footer.privacy':'Політика конфіденційності','footer.terms':'Умови користування',
       'footer.copyright2':'Усі права захищені.','footer.credit':'Дизайн сайту натхненний Studio Brothers'
     }
   };
