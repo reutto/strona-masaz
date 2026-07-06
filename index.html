@@ -222,11 +222,20 @@ html{ scrollbar-width: thin; scrollbar-color: var(--teal) var(--cream-dark); }
   display:flex; flex-direction:column; justify-content:space-between;
 }
 .mobile-menu.is-open{ transform: translateX(0); }
+.mobile-menu__close{
+  position:absolute; top:22px; right:30px;
+  width:40px; height:40px; border-radius:50%;
+  background: rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.25);
+  color: var(--cream); display:flex; align-items:center; justify-content:center;
+  transition: all .3s var(--ease);
+}
+.mobile-menu__close:hover{ background: var(--gold); border-color: var(--gold); color: var(--teal-dark); transform: rotate(90deg); }
+.mobile-menu__close .icon{ width:18px; height:18px; }
 .mobile-menu ul{ display:flex; flex-direction:column; gap:6px; text-align:center; }
 .mobile-menu a{ color: var(--cream); font-size:1.15rem; padding:12px 0; display:block; border-bottom:1px solid rgba(255,255,255,.08); transition: color .3s, padding-left .3s; }
 .mobile-menu a:hover{ color: var(--gold); padding-left:8px; }
-.mobile-menu__actions{ display:flex; flex-direction:column; gap:14px; }
-.mobile-menu__actions .btn{ justify-content:center; width:100%; }
+.mobile-menu__actions{ display:flex; flex-direction:column; gap:14px; text-align:center; }
+.mobile-menu__actions .btn{ justify-content:center; width:100%; text-align:center; }
 .mobile-menu__actions .btn--ghost{ color: var(--cream); border-color: rgba(247,243,236,.5); }
 .mobile-menu__actions .btn--ghost:hover{ background: var(--cream); color: var(--teal-dark); border-color: var(--cream); }
 .mobile-menu__overlay{
@@ -521,6 +530,7 @@ html{ scrollbar-width: thin; scrollbar-color: var(--teal) var(--cream-dark); }
     <symbol id="icon-chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
     <symbol id="icon-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
     <symbol id="icon-arrow-up" viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6"/></symbol>
+    <symbol id="icon-close" viewBox="0 0 24 24"><path d="M5 5l14 14M19 5L5 19"/></symbol>
     <symbol id="icon-leaf" viewBox="0 0 24 24"><path d="M4 20c8 0 15-6 16-16-11 1-17 7-17 16 0 0 0 0 1 0z"/><path d="M5 19c2-6 6-10 13-13"/></symbol>
     <symbol id="icon-sparkle" viewBox="0 0 24 24"><path d="M12 3l2 5 5 2-5 2-2 5-2-5-5-2 5-2z"/><path d="M19 15l1 2 2 1-2 1-1 2-1-2-2-1 2-1z"/></symbol>
     <symbol id="icon-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.5 2.7-6 6-6s6 2.5 6 6"/><circle cx="17" cy="9" r="2.6"/><path d="M15 13.2c2.6.4 4.5 2.4 4.5 5.3"/></symbol>
@@ -584,6 +594,9 @@ html{ scrollbar-width: thin; scrollbar-color: var(--teal) var(--cream-dark); }
 </header>
 
 <div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu__close" id="mobileMenuClose" aria-label="Zamknij menu">
+    <svg class="icon" viewBox="0 0 24 24"><use href="#icon-close"/></svg>
+  </button>
   <ul>
     <li><a href="#hero" data-i18n="nav.start">Start</a></li>
     <li><a href="#masaze" data-i18n="nav.masaze">Masaże</a></li>
@@ -867,6 +880,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   burger.addEventListener('click', toggleMenu);
   mobileOverlay.addEventListener('click', closeMenu);
+  document.getElementById('mobileMenuClose').addEventListener('click', closeMenu);
   mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
 
   /* ============ LANGUAGE SWITCH (PL/EN/UA translations) ============ */
